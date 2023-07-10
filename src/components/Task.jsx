@@ -1,6 +1,7 @@
 import React from "react";
+import Formulario from "./Formulario";
 
-function ToDo({tarefas}){    
+function Task({tarefas}){    
 
     return(
         <div>
@@ -11,4 +12,4 @@ function ToDo({tarefas}){
             </ol>        
         </div> )   
 }
-export default ToDo
+export default Task
