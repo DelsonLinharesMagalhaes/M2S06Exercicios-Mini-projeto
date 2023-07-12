@@ -1,12 +1,12 @@
 import React from "react";
 import Formulario from "./Formulario";
 
-function Task({tarefas}){    
+function Task({ListaTarefas}){    
 
     return(
         <div>
             <ol>
-                {tarefas.map(item=>{
+                {ListaTarefas.map(item=>{
                     return <li key={item}>{item}</li>
                 })}
             </ol>        

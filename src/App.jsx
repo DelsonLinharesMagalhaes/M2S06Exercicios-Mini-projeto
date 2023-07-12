@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -9,13 +9,23 @@ import Formulario from './components/Formulario'
 
 function App() {
 
-  const ListaTarefas = ['Alimentar cachorro','Passear com cachorro','Tomar café', 'Escovar os dentes','Tomar banho']
+  const [ListaTarefas, setListaTarefas] = useState(['Alimentar cachorro',
+                                                'Passear com cachorro',
+                                                'Tomar café',
+                                                'Escovar os dentes',
+                                                'Tomar banho'])
+
+  useEffect(()=> {document.title=`${ListaTarefas.length} cadastradas`})
+
+    const novaTarefaCriada = (novaTarefa) =>{setListaTarefas([...ListaTarefas, novaTarefa])}
+    const limparTarefas = () => {setListaTarefas([])}
 
     return (
       <>
         <h1>Exercícios semana 6</h1>
-          <Formulario />
-          <Task tarefas={ListaTarefas}/>
+          <Formulario handleSubmit={novaTarefaCriada}/>
+          <Task ListaTarefas={ListaTarefas}/>
+          <button onClick={limparTarefas}>Limpar Tarefas</button>
       </>
     )
 
